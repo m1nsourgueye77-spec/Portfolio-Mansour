@@ -10,175 +10,431 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* =========================================================
+   CONFIGURATION GÉNÉRALE
+========================================================= */
 
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #0d1b2a;
-      color: #fff;
-      overflow-x: hidden;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    #tsparticles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    #portfolio {
-      width: 794px; /* A4 width en px */
-      max-width: 100%;
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    header img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: white;
-      padding: 8px;
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      z-index: 2;
-    }
-
-    header h1 {
-      margin: 10px 0 5px;
-      font-size: 2.2em;
-    }
-
-    header p {
-      margin: 5px 0;
-      font-size: 1.1em;
-      opacity: 0.9;
-    }
-
-    nav {
-      background: rgba(0,51,124,0.9);
-      color: white;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-      padding: 10px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffcc00;
-    }
-
-    section {
-      background: rgba(255,255,255,0.95);
-      margin: 40px auto;
-      padding: 40px;
-      max-width: 900px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      color: #222;
-      z-index: 2;
-      position: relative;
-      page-break-inside: avoid;
-    }
-
-    h2 {
-      color: #004aad;
-      border-left: 6px solid #ffcc00;
-      padding-left: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul li {
-      padding: 8px 0;
-      line-height: 1.6;
-    }
-
-    .download-btn {
-      display: block;
-      margin: 40px auto;
-      background: #ffcc00;
-      color: #00337c;
-      border: none;
-      padding: 12px 30px;
-      font-size: 1em;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-      z-index: 2;
-      position: relative;
-    }
-
-    .download-btn:hover {
-      background: #ffe066;
-    }
-
-    footer {
-      background: rgba(0,51,124,0.9);
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      z-index: 2;
-      position: relative;
-    }
-
-    @media (max-width: 700px) {
-      header img {
-        position: static;
-        margin-bottom: 15px;
-      }
-      header {
-        padding: 80px 20px;
-      }
-      section {
-        margin: 20px;
-        padding: 25px;
-      }
-    }
-
-    
-    @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+html,
 body {
-  background: linear-gradient(-45deg, #74ABE2, #5563DE, #8E54E9, #4776E6);
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   FOND ANIMÉ
+========================================================= */
+
+body {
+  background: linear-gradient(
+    -45deg,
+    #74ABE2,
+    #5563DE,
+    #8E54E9,
+    #4776E6
+  );
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================================================
+   PARTICULES
+========================================================= */
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* =========================================================
+   CONTENEUR PRINCIPAL
+========================================================= */
+
+#portfolio {
+  width: 794px;
+  max-width: 100%;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.portfolio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 35px 25px;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   PHOTO DE MANSSOUR À GAUCHE
+========================================================= */
+
+.photo-profil {
+  flex: 0 0 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-profil img {
+  width: 115px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffcc00;
+  background: #fff;
+  padding: 5px;
+  display: block;
+}
+
+/* =========================================================
+   INFORMATIONS AU CENTRE
+========================================================= */
+
+.header-info {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.header-info h1 {
+  margin: 5px 0 10px;
+  font-size: 2.2em;
+  line-height: 1.2;
+}
+
+.header-info p {
+  margin: 6px 0;
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.header-info .fonction {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* =========================================================
+   LOGO OFFICIEL GI.CODE À DROITE
+========================================================= */
+
+.logo-gicode {
+  flex: 0 0 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-gicode img {
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+  background: rgba(0, 51, 124, 0.9);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 40px auto;
+  padding: 40px;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: #222;
+  z-index: 2;
+  position: relative;
+  page-break-inside: avoid;
+}
+
+/* =========================================================
+   TITRES
+========================================================= */
+
+h2 {
+  color: #004aad;
+  border-left: 6px solid #ffcc00;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================================
+   LISTES
+========================================================= */
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  padding: 8px 0;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   BOUTON PDF
+========================================================= */
+
+.download-btn {
+  display: block;
+  margin: 40px auto;
+  background: #ffcc00;
+  color: #00337c;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 2;
+  position: relative;
+}
+
+.download-btn:hover {
+  background: #ffe066;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  background: rgba(0, 51, 124, 0.9);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  z-index: 2;
+  position: relative;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLETTE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  #portfolio {
+    width: 100%;
+  }
+
+  .portfolio-header {
+    padding: 30px 20px;
+    gap: 15px;
+  }
+
+  .photo-profil {
+    flex: 0 0 105px;
+  }
+
+  .photo-profil img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .logo-gicode {
+    flex: 0 0 170px;
+  }
+
+  .logo-gicode img {
+    width: 170px;
+  }
+
+  .header-info h1 {
+    font-size: 1.8em;
+  }
+
+  .header-info p {
+    font-size: 0.95em;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TÉLÉPHONE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .portfolio-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 15px;
+    gap: 15px;
+  }
+
+  /* Photo */
+  .photo-profil {
+    flex: none;
+  }
+
+  .photo-profil img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Texte */
+  .header-info {
+    width: 100%;
+  }
+
+  .header-info h1 {
+    font-size: 1.7em;
+  }
+
+  .header-info p {
+    font-size: 0.95em;
+  }
+
+  .header-info .fonction {
+    font-size: 1em;
+  }
+
+  /* Logo */
+  .logo-gicode {
+    flex: none;
+    width: 100%;
+  }
+
+  .logo-gicode img {
+    width: 180px;
+    margin: 5px auto;
+  }
+
+  /* Navigation */
+  nav {
+    gap: 10px;
+    padding: 10px 5px;
+  }
+
+  nav a {
+    font-size: 0.9em;
+  }
+
+  /* Sections */
+  section {
+    margin: 20px 10px;
+    padding: 25px 20px;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  /* Bouton */
+  .download-btn {
+    margin: 30px auto;
+    width: 90%;
+  }
+}
+
+/* =========================================================
+   PETITS TÉLÉPHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .portfolio-header {
+    padding: 25px 10px;
+  }
+
+  .photo-profil img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .header-info h1 {
+    font-size: 1.45em;
+  }
+
+  .header-info p {
+    font-size: 0.85em;
+  }
+
+  .logo-gicode img {
+    width: 160px;
+  }
+
+  nav a {
+    font-size: 0.8em;
+  }
+
+  section {
+    margin: 15px 8px;
+    padding: 20px 15px;
+  }
 }
 
   </style>
@@ -187,14 +443,36 @@ body {
 
   <div id="tsparticles"></div>
 
-  <header>
-    <img src="https://i.ibb.co/27xRzqTQ/logo.png" alt="Logo Gi.Code">
+ <header class="portfolio-header">
+
+  <!-- Photo de Mansour -->
+  <div class="photo-profil">
+    <img src="logo.jpg" alt="Mansour Gueye">
+  </div>
+
+  <!-- Informations centrales -->
+  <div class="header-info">
     <h1>Portfolio de Mansour Gueye</h1>
-    <p>Gi.Code Formation — Bureautique • Développement • Sécurité Web</p>
-    <p>Enseignant • Formateur numérique • Développeur Full Stack | Automatisation administrative | Bureautique • Web • IA | Fondateur de Gi.Code</p>
-    <p>📍 Dakar, Sénégal • 💼 Spécialiste en Word, Excel, PowerPoint, HTML, CSS, JavaScript et Python</p>
-    <p>🎯 Passionné par l’éducation numérique et la formation interactive</p>
-  </header>
+
+    <p class="fonction">
+      Formateur en Bureautique, Développement Web et Intelligence Artificielle
+    </p>
+
+    <p>
+      Enseignant • Développeur Full Stack • Fondateur de Gi.Code Formation
+    </p>
+
+    <p>
+      📍 Dakar, Sénégal
+    </p>
+  </div>
+
+  <!-- Logo officiel Gi.Code -->
+  <div class="logo-gicode">
+    <img src="logo-gicode-officiel.jpg" alt="Gi.Code Formation">
+  </div>
+
+</header>
 
   <nav>
     <a href="#profil">Profil</a>
