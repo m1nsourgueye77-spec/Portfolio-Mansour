@@ -437,6 +437,275 @@ footer {
   }
 }
 
+
+    /* =========================================================
+   GI.CODE FOOTER
+========================================================= */
+
+.gicode-footer {
+
+    background: #071a2b;
+
+    color: rgba(255,255,255,.75);
+
+    margin-top: 60px;
+
+}
+
+.gicode-footer-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 65px 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1.4fr;
+
+    gap: 45px;
+
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.gicode-logo {
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    color: white;
+
+    margin-bottom: 18px;
+
+}
+
+.gicode-logo span {
+
+    color: #d4af37;
+
+}
+
+.gicode-footer-brand p {
+
+    max-width: 350px;
+
+    line-height: 1.7;
+
+}
+
+.gicode-slogan {
+
+    margin-top: 18px;
+
+    color: #d4af37;
+
+    font-weight: 600;
+
+}
+
+/* =========================
+   COLONNES
+========================= */
+
+.gicode-footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+
+}
+
+.gicode-footer-column h3 {
+
+    color: white;
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
+
+}
+
+.gicode-footer-column a {
+
+    color:
+        rgba(255,255,255,.65);
+
+    transition: .3s ease;
+
+}
+
+.gicode-footer-column a:hover {
+
+    color: #d4af37;
+
+    transform: translateX(4px);
+
+}
+
+.gicode-footer-column p {
+
+    margin: 0;
+
+}
+
+.gicode-footer-column i {
+
+    width: 20px;
+
+    color: #d4af37;
+
+}
+
+/* =========================
+   RÉSEAUX SOCIAUX
+========================= */
+
+.gicode-social {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+.gicode-social a {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    transition: .3s ease;
+
+}
+
+.gicode-social a:hover {
+
+    background: #d4af37;
+
+    color: #071a2b;
+
+    transform:
+        translateY(-4px);
+
+}
+
+/* =========================
+   BAS DU FOOTER
+========================= */
+
+.gicode-footer-bottom {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding:
+        20px 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,.1);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    font-size: 13px;
+
+}
+
+.gicode-footer-bottom p {
+
+    margin: 0;
+
+}
+
+.gicode-footer-bottom a {
+
+    margin-left: 20px;
+
+    color:
+        rgba(255,255,255,.6);
+
+}
+
+.gicode-footer-bottom a:hover {
+
+    color: #d4af37;
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .gicode-footer-container {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .gicode-footer-container {
+
+        grid-template-columns: 1fr;
+
+        padding:
+            50px 20px;
+
+    }
+
+    .gicode-footer-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .gicode-footer-bottom a {
+
+        margin-left: 0;
+
+        margin-right: 15px;
+
+    }
+
+}
+
+
   </style>
 </head>
 <body id="portfolio">
@@ -552,6 +821,121 @@ footer {
   </section>
 
   <button class="download-btn" onclick="telechargerPDF()">📄 Télécharger en PDF</button>
+
+
+  <!-- =========================
+     FOOTER GI.CODE
+========================= -->
+
+<footer class="gicode-footer">
+
+    <div class="gicode-footer-container">
+
+        <!-- Identité -->
+        <div class="gicode-footer-brand">
+
+            <div class="gicode-logo">
+                <span>Gi.</span>Code
+            </div>
+
+            <p>
+                Solutions numériques, formation professionnelle
+                et développement d'applications.
+            </p>
+
+            <p class="gicode-slogan">
+                <i class="fas fa-code"></i>
+                Former • Développer • Innover
+            </p>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <div class="gicode-footer-column">
+
+            <h3>Navigation</h3>
+
+            <a href="index.html">Accueil</a>
+
+            <a href="#">À propos</a>
+
+            <a href="#">Nos services</a>
+
+            <a href="#">Formations</a>
+
+            <a href="#">Contact</a>
+
+        </div>
+
+
+        <!-- Solutions -->
+        <div class="gicode-footer-column">
+
+            <h3>Nos solutions</h3>
+
+            <a href="#">Gi.Code Formation</a>
+
+            <a href="#">Gi.Code ERP</a>
+
+            <a href="#">Développement Web</a>
+
+            <a href="#">Applications</a>
+
+            <a href="#">Intelligence artificielle</a>
+
+        </div>
+
+
+        <!-- Contact -->
+        <div class="gicode-footer-column">
+
+            <h3>Nous contacter</h3>
+
+            <p>
+                <i class="fas fa-location-dot"></i>
+                Dakar, Sénégal
+            </p>
+
+            <p>
+                <i class="fas fa-envelope"></i>
+                Contactez-nous
+            </p>
+
+            <p>
+                <i class="fas fa-phone"></i>
+                +221 777 681 37 49
+            </p>
+
+
+            <div class="gicode-social">
+
+                <a href="#" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</footer>
+
 
   <footer>
     © 2025 Mansour Gueye — Gi.Code Formation | Enseignant & Formateur Numérique
